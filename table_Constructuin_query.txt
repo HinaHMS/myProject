@@ -1,0 +1,57 @@
+create database carrental;
+use carrental;
+create table Customer(
+Customer_id varchar(40) not null,
+Customer_name varchar(40) not null,
+Customer_email varchar(40) not null,
+Customer_DOB varchar(40) not null,
+Customer_occupation varchar(40),
+Customer_address varchar(40),
+Customer_licenseNO varchar(40) not null,
+Primary key(Customer_id)
+);
+
+create table Requirements(
+  car_type varchar(40) not null,
+  pick_up_location varchar(20) not null DEFAULT "Airport",
+  drop_off_location varchar(20) not null DEFAULT "Airport",
+  pick_up_date varchar(20) not null DEFAULT" CURRENT_DATE()",
+  return_date varchar(20) not null default " CURRENT_DATE() +3",
+  total_seats int(6) not null,
+  Primary KEY(car_type)
+
+);
+
+create table Vehicle(
+Vehicle_id varchar(20) not null,
+Brand varchar(40) not null,
+Vehicle_name varchar(40) not null,
+car_type varchar(40) not null,
+total_seats int(6) not null,
+Per_day_cost int(100) not null,
+Availability varchar(40) not null,
+Meter_Reading varchar(40) not null,
+Primary Key (Vehicle_id)
+);
+
+create table Booking_details(
+Booking_id varchar(40) not null,
+Booking_status varchar(40) not null,
+Total_amount varchar(40) not null,
+Customer_id varchar(40) not null,
+Vehicle_id varchar(20) not null,
+
+Primary Key(Booking_id),
+foreign key (Customer_id) references Customer(Customer_id),
+foreign key (Vehicle_id) references Vehicle(Vehicle_id)
+);
+
+create table Billing(
+Bill_id varchar(20) not null,
+Bill_date varchar(20) not null,
+Total_amount varchar(20) not null,
+Booking_id varchar(20) not null,
+Primary key(Bill_id),
+
+foreign key(Booking_id) references Booking_details(Booking_id)
+);

@@ -1,0 +1,56 @@
+Qerys to insert data in the given tables
+
+1
+ query to insert data in customer Table
+
+ INSERT INTO Customer  (Customer_id,Customer_name,Customer_email,Customer_DOB,Customer_occupation,Customer_address,Customer_licenseNO)
+VALUES
+ ('13','Ben','Ben@gmail.com','1994',NULL,'9 st','LMP91'),
+ ('12','Alex','Alex@gmail.com','1999',NULL,'22 st','AKJ221');
+
+
+
+
+2
+ query to insert data in Requirements table
+
+ insert into Requirements(car_type , pick_up_location, drop_off_location, pick_up_date , return_date, total_seats)
+values
+('SUV' , 'G7' , 'F10' , default , default , 6),
+('Sedan' , 'Lahore' , 'RWP' , '19-02-2020' , '29-02-2020' , 4);
+
+
+
+
+3
+ query to insert data in Vehicle table
+
+
+ insert into Vehicle (Vehicle_id , Brand , Vehicle_name , car_type , total_seats , Per_day_cost, Availability , Meter_Reading)
+ values
+ ('BMW12' , 'BMW' , 'BMW 720li' , 'Sedan', 4 , '160' , 'Available' , 123221),
+ ('LC200' , 'Totota' , 'Land Cruiser' , 'SUV', 6 , '200' , 'Available' , 82324);
+
+
+
+
+
+ 4
+  query to insert data in Booking details table
+
+
+  Insert into Booking_details( Booking_id , Booking_status , Total_amount, Customer_id , Vehicle_id)
+values
+('B1234' , 'Booked' , 600 , 12 , 'LC200'),
+('B223' , 'Booked' , 1200 , 13 , 'BMW12');
+
+
+
+
+5
+ query to insert data in billing table
+
+ insert into Billing (Bill_id , Bill_date , Total_amount , Booking_id)
+values
+('Bill-1' , current_date() , 600 , 'B1234'),
+('Bill-2' , current_date() , 1200 , 'B223');
